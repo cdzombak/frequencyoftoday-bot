@@ -6,5 +6,5 @@ require 'twitter'
 require_relative 'twitter_init'
 
 frequency = 100 + rand(6000-100)
-tweet = "Today’s frequency is #{frequency} Hz. \nhttp://frequencyof.today/index.html\##{frequency}"
+tweet = "Today’s frequency is #{frequency} Hz. \nhttp://frequencyof.today/index.html?f=#{frequency}"
 twitter_client.update(tweet)
