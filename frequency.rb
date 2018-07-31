@@ -14,5 +14,5 @@ else
   frequency = 300 + rand(4000-300)
 end
 
-tweet = "Today’s frequency is #{frequency} Hz. \nhttp://frequencyof.today/index.html?f=#{frequency}"
+tweet = "Today’s frequency is #{frequency} Hz. \nhttps://frequencyof.today/index.html?f=#{frequency}"
 twitter_client.update(tweet)
