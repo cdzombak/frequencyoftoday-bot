@@ -43,7 +43,6 @@ jobs:
         with:
           images: |
             cdzombak/frequencyoftoday-bot
-            ghcr.io/cdzombak/frequencyoftoday-bot
           tags: |
             type=ref,event=branch
 
