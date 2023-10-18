@@ -6,9 +6,6 @@ name: CI
     branches:
       - "main"
 
-permissions:
-  contents: read
-
 env:
   DOCKER_PLATFORMS: "linux/amd64,linux/arm64"
   FPM_VERSION: 1.15.1
@@ -16,8 +13,6 @@ env:
 jobs:
   docker:
     name: Docker Images
-    needs: [lint, meta]
-    if: needs.meta.outputs.is_running_version_tag_update != 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
