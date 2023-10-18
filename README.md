@@ -1,16 +1,14 @@
-# frequencyoftoday-generator
+# frequencyoftoday-bot
 
-A hacky script for generating daily [tweets](https://twitter.com/frequencytoday) for [today's frequency](http://frequencyof.today).
+Generates daily [posts](https://botsin.space/@frequencytoday) for [today's frequency](https://frequencyoftoday.dzdz.cz).
 
 ## Setup
 
-1. Signup for a Twitter account
-2. Sign into [dev.twitter.com](https://dev.twitter.com) with a phone-number-verified account
-3. Create an application for this generator
-4. Set its permissions to read/write
-5. Use the `oauth.rb` script to grab OAuth credentials
-6. Create a file named `twitter_init.rb` in this directory with the OAuth credentials you want to use
-6. Upload to your server
-7. `bundle install --path Vendor/bundle`
-8. Run it with `bundle exec ruby ebook.rb` a few times
-9. Schedule it to run daily with cron: `32   9   *   *   *   cd /home/USER/scripts/frequencyoftoday && /usr/local/bin/bundle exec /usr/bin/ruby /home/USER/scripts/frequencyoftoday/frequency.rb`
+1. Install [mastodon-post](https://github.com/cdzombak/mastodon-post). If you want to run it via Docker, you'll need to adjust your cron job accordingly.
+2. Copy [`.env.template`](https://github.com/cdzombak/frequencyoftoday-bot/blob/master/.env.template) to `.env` somewhere on your server and populate it, following the [instructions for mastodon-post](https://github.com/cdzombak/mastodon-post/blob/main/README.md#credentials-and-server-configuration).
+3. Pull the Docker image via `docker pull cdzombak/frequencyoftoday-bot:main`.
+4. Schedule the job to run via cron, following the below example, adjusting `/path/to/dir_containing_dotenv_file` accordingly.
+
+```crontab
+32   9   *   *   *   cd /path/to/dir_containing_dotenv_file && mastodon-post -text "$(docker rum --rm cdzombak/frequencyoftoday-bot:main)"
+```
