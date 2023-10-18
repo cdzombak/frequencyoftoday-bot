@@ -10,5 +10,5 @@ Generates daily [posts](https://botsin.space/@frequencytoday) for [today's frequ
 4. Schedule the job to run via cron, following the below example, adjusting `/path/to/dir_containing_dotenv_file` accordingly.
 
 ```crontab
-32   9   *   *   *   cd /path/to/dir_containing_dotenv_file && mastodon-post -text "$(docker rum --rm cdzombak/frequencyoftoday-bot:main)"
+32   9   *   *   *   cd /path/to/dir_containing_dotenv_file && mastodon-post -text "$(docker run --rm cdzombak/frequencyoftoday-bot:main)"
 ```
